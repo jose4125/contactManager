@@ -9,7 +9,7 @@ var config = {
       name: 'api'
     },
     port: 3000,
-    db: 'mongodb://localhost/api-development'
+    db: 'mongodb://localhost/contactmanager'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'api'
     },
     port: 3000,
-    db: 'mongodb://localhost/api-test'
+    db: 'mongodb://localhost/contactmanager'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'api'
     },
     port: 3000,
-    db: 'mongodb://localhost/api-production'
+    db: 'mongodb://localhost/contactmanager'
   }
 };
 

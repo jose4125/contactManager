@@ -1,7 +1,8 @@
 module.exports = function(app){
 
 	//home route
-	var home = require('../app/controllers/home');
-	app.get('/', home.index);
+	var contacts = require('../app/controllers/contacts');
+	app.get('/', contacts.index);
+  app.post('/contact', contacts.create);
 
 };
