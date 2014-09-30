@@ -12,6 +12,26 @@ exports.index = function(callback) {
     }
   })
 }
+exports.allAdmin = function(callback) {
+  Contact.find({}, { user_name: 1, first_name: 1, last_name: 1, old_password:1 }, function( error, contacts ) {
+    if( error ) {
+      callback( error, null )
+    }else{
+      callback( null, contacts );
+    }
+  })
+}
+exports.show = function( req, callback ){
+  console.log( 'username', req );
+  var query = {user_name: req };
+  Contact.findOne( query, function( error, contact ){
+    if( error ){
+      callback( error, null );
+    }else{
+      callback( null, contact );
+    }
+  } )
+}
 exports.create = function( req, callback ) {
 
   self = this;
@@ -47,5 +67,14 @@ exports.edit = function( req, callback ) {
       callback( null, contact );
     }
   });
-
+}
+exports.destroy = function( req, callback ){
+  var query = { user_name: req };
+  Contact.remove( query, function( error, contact) {
+    if( error ){
+      callback( error, null );
+    }else{
+      callback( null, contact );
+    }
+  } );
 }

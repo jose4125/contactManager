@@ -55,6 +55,26 @@ module.exports = Contacts = {
       }
     });
   },
+  allAdmin: function( req, res ){
+    Contact.allAdmin( function( error, contacts ) {
+      if( error ){ 
+        res.json( error );
+      }else{
+        res.json( 200, contacts)
+      }
+    });
+  },
+
+  show: function( req, res ) {
+    console.log( 'username', req.params.user_name );
+    Contact.show( req.params.user_name, function( error, contact ){
+      if( error ){
+        res.json( error );
+      }else{
+        res.json( 200, contact );
+      }
+    } );
+  },
 
   create: function( req, res ) {
     console.log( 'req', req.body );
@@ -89,5 +109,15 @@ module.exports = Contacts = {
         res.json( 200, contact );
       }
     } );
+  },
+
+  destroy: function( req, res ){
+    Contact.destroy( req.params.user_name, function( error, contact ){
+      if( error ){
+        res.json( error );
+      }else{
+        res.json( 200, contact );
+      }
+    })
   }
 }
